@@ -2,4 +2,7 @@
     <string name="app_name">DailyStudyMemo</string>
     <string name="menu_switch">メモ</string>
     <string name="menu_filter">フィルタ</string>
+    <string name="tab_math">数学</string>
+    <string name="tab_science">理科</string>
+    <string name="tab_world_history">世界史</string>
 </resources>
