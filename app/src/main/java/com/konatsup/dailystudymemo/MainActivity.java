@@ -1,6 +1,8 @@
 package com.konatsup.dailystudymemo;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -31,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
         RealmResults<Note> result = realm.where(Note.class).findAll();
 
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                add();
+            }
+        });
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -46,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.switchButton:
                 // ボタンをタップした際の処理を記述
-                add();
                 break;
 
         }
