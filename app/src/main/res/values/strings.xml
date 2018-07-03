@@ -5,4 +5,8 @@
     <string name="tab_math">数学</string>
     <string name="tab_science">理科</string>
     <string name="tab_world_history">世界史</string>
+
+    <string name="hiza_title">双曲線その1</string>
+    <string name="hiza_content">双曲線を求める問題</string>
+
 </resources>

@@ -5,7 +5,6 @@ import io.realm.annotations.PrimaryKey;
 
 public class Note extends RealmObject {
 
-    @PrimaryKey
     private int id; //固有ID
     private int subject; //科目名
     private int categoryId; //頻出、普通、難題
