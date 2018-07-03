@@ -3,7 +3,7 @@ package com.konatsup.dailystudymemo;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Note extends RealmObject{
+public class Note extends RealmObject {
 
     @PrimaryKey
     private int id; //固有ID
@@ -11,8 +11,9 @@ public class Note extends RealmObject{
     private int categoryId; //頻出、普通、難題
     private int priority; //優先度
     private int questionState; //正解、間違っていた、未着手
+    private String title; //タイトル
+    private String content; //メモ文章の中身
     private String imagePath; //画像へのパス
-    private String memoText; //メモ文章
     private String createdAt; //作成日
 
     public int getId() {
@@ -55,20 +56,28 @@ public class Note extends RealmObject{
         this.questionState = questionState;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     public String getImagePath() {
         return imagePath;
     }
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
-    }
-
-    public String getMemoText() {
-        return memoText;
-    }
-
-    public void setMemoText(String memoText) {
-        this.memoText = memoText;
     }
 
     public String getCreatedAt() {
@@ -78,5 +87,7 @@ public class Note extends RealmObject{
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
+
+
 
 }
