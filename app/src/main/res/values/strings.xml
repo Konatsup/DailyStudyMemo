@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DailyStudyMemo</string>
+    <string name="menu_switch">メモ</string>
+    <string name="menu_filter">フィルタ</string>
 </resources>
