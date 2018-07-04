@@ -9,13 +9,24 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import java.util.Calendar;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
+
 public class PostActivity extends AppCompatActivity {
 
-    LinearLayout imageLayout;
+    private LinearLayout imageLayout;
+    private Button postButton;
+    private EditText titleEditText;
+    private EditText contentEditText;
 
+    private Realm realm;
     private Uri m_uri;
     private static final int REQUEST_CHOOSER = 1000;
 
@@ -25,6 +36,11 @@ public class PostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_post);
 
         imageLayout = (LinearLayout)findViewById(R.id.imageLayout);
+        postButton = (Button)findViewById(R.id.postButton);
+        titleEditText = (EditText)findViewById(R.id.titleEditText);
+        contentEditText = (EditText)findViewById(R.id.contentEditText);
+
+        realm = Realm.getDefaultInstance();
 
         imageLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +48,44 @@ public class PostActivity extends AppCompatActivity {
 //                showGallery();
             }
         });
+
+        postButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                showGallery();
+                add();
+            }
+        });
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        realm.close();
+    }
+
+
+    public void add(){
+        String titleText,contentText;
+        titleText = titleEditText.getText().toString();
+        contentText = contentEditText.getText().toString();
+        String createdAtText  = android.text.format.DateFormat.format("yyyy-MM-dd-kk-mm-ss", Calendar.getInstance()).toString();
+
+        //データの新規登録
+        realm.beginTransaction();
+        Note note = realm.createObject(Note.class); // 新たなオブジェクトを作成
+        note.setId(1);
+        note.setNoteType(0);
+        note.setSubject(0);
+        note.setCategoryId(0);
+        note.setPriority(5);
+        note.setQuestionState(0);
+        note.setTitle(titleText);
+        note.setContent(contentText);
+        note.setImagePath("/");
+        note.setCreatedAt(createdAtText);
+        realm.commitTransaction();
 
     }
 
