@@ -1,5 +1,6 @@
 package com.konatsup.dailystudymemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                add();
+                Intent intent = new Intent(getApplicationContext(), PostActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.switchButton:
                 // ボタンをタップした際の処理を記述
+                add();
                 break;
 
         }
