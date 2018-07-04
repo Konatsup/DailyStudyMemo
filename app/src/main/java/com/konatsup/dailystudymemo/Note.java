@@ -6,6 +6,7 @@ import io.realm.annotations.PrimaryKey;
 public class Note extends RealmObject {
 
     private int id; //固有ID
+    private int noteType; //ノートの種類(メモ、問題)
     private int subject; //科目名
     private int categoryId; //頻出、普通、難題
     private int priority; //優先度
@@ -21,6 +22,14 @@ public class Note extends RealmObject {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getNoteType() {
+        return noteType;
+    }
+
+    public void setNoteType(int noteType) {
+        this.noteType = noteType;
     }
 
     public int getSubject() {

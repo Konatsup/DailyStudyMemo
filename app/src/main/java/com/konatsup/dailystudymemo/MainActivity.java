@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         realm.beginTransaction();
         Note note = realm.createObject(Note.class); // 新たなオブジェクトを作成
         note.setId(1);
+        note.setNoteType(0);
         note.setSubject(0);
         note.setCategoryId(0);
         note.setPriority(5);
