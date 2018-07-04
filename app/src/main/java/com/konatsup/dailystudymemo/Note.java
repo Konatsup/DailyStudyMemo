@@ -7,8 +7,8 @@ public class Note extends RealmObject {
 
     private int id; //固有ID
     private int noteType; //ノートの種類(メモ、問題)
-    private int subject; //科目名
-    private int categoryId; //頻出、普通、難題
+    private int subject; //科目名(数学、理科、世界史)
+    private int categoryId; //頻出、普通、難問
     private int priority; //優先度
     private int questionState; //正解、間違っていた、未着手
     private String title; //タイトル
