@@ -86,6 +86,7 @@ public class PostActivity extends AppCompatActivity {
         note.setImagePath("/");
         note.setCreatedAt(createdAtText);
         realm.commitTransaction();
+        finish();
 
     }
 
